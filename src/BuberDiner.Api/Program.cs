@@ -1,4 +1,6 @@
-using BuberDiner.Api.Errors;
+using BubaDinner.Application.Services;
+using BubaDinner.Application.Services.Interfaces;
+using BuberDiner.Api.Common.Errors;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
     builder.Services.AddControllers();
     builder.Services.AddSingleton<ProblemDetailsFactory, BuberDinnerProblemDetailsFactory>();
+    builder.Services.AddScoped<ITest, Test>();
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
